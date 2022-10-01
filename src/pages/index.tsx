@@ -5,12 +5,12 @@ import TonConnector from "../components/Ton-Connector";
 
 const Home: NextPage = () => {
   const router = useRouter();
-  const [userId, setUserId] = useState();
+  const [userId, setUserId] = useState<string | number>();
 
   const routerQ = JSON.stringify(router.query);
   useEffect(() => {
     if (router.query.userId) {
-      setUserId(userId);
+      setUserId(router.query.userId as string);
     }
   }, [routerQ]);
 
