@@ -18,7 +18,7 @@ const Home: NextPage = () => {
     <div className="App">
       <h1>User id: {userId || "unrecognised"}</h1>
       <p>{JSON.stringify(router.query, undefined, 2)}</p>
-      <p>{location.search}</p>
+      <p>{document.location?.search}</p>
       {/* <TonConnector /> */}
     </div>
   );

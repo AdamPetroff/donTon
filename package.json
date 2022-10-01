@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p $PORT",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "git add . && git commit -m '..' && git push heroku"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.8.0",
