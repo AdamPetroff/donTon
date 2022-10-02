@@ -41,7 +41,7 @@ export default function TonConnector({ userId }: { userId: string }) {
       network="mainnet"
       url="https://ton.org/"
       name="TON TWA BOT"
-      debug={false}
+      debug={true}
       connectionState={connectionState}
       setConnectionState={(s) => {
         setConnectionState(s as RemoteConnectPersistance);

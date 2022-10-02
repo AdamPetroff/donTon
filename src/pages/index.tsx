@@ -14,9 +14,7 @@ const Home: NextPage = () => {
     }
   }, [routerQ]);
 
-  return (
-    <div className="App">{userId && <TonConnector userId={userId} />}</div>
-  );
+  return <div className="App">{<TonConnector userId={userId || ""} />}</div>;
 };
 
 export default Home;
