@@ -21,7 +21,7 @@ export const tc = new TonClient({
 
 let wasPendingConnectionChecked = false;
 
-export default function TonConnector() {
+export default function TonConnector({ userId }: { userId: string }) {
   const [connectionState, setConnectionState] =
     useLocalStorage<RemoteConnectPersistance>("connection", {
       type: "initing",
@@ -63,8 +63,6 @@ function _TonConnecterInternal() {
         <div style={{ textAlign: "left", marginBottom: 20 }}>
           <TonWalletDetails />
           <TransferTon />
-          <Counter />
-          <Jetton />
         </div>
       )}
     </>

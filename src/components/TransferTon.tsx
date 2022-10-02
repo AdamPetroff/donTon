@@ -6,40 +6,25 @@ import { Card } from "./Card";
 export function TransferTon() {
   const connect = useTonhubConnect();
   const [txnStatus, setTxnStatus] = useState<string | null>(null);
-  const [tonAmount, setTonAmount] = useState("0.01");
-  const [tonRecipient, setTonRecipient] = useState(
-    "EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c"
-  );
+
+  const tonAmount = 1;
+  const tonRecipient = "";
 
   return (
     <Card title="Transfer TON">
-      <div>
-        <label>Amount </label>
-        <input
-          style={{ marginRight: 8 }}
-          type="number"
-          value={tonAmount}
-          onChange={(e) => setTonAmount(e.target.value)}
-        ></input>
-      </div>
-      <div>
-        <label>To </label>
-        <input
-          style={{ marginRight: 8 }}
-          value={tonRecipient}
-          onChange={(e) => setTonRecipient(e.target.value)}
-        ></input>
-      </div>
       <button
         style={{ marginTop: 18 }}
         onClick={async () => {
           setTxnStatus("Txn requested. Check your wallet");
-          const stat = await connect.api.requestTransaction({
-            to: tonRecipient,
-            value: toNano(tonAmount).toString(10),
-          });
 
-          setTxnStatus(stat.type);
+          connect.api
+            .requestTransaction({
+              to: tonRecipient,
+              value: toNano(tonAmount).toString(10),
+            })
+            .then((stat) => {
+              setTxnStatus(stat.type);
+            });
         }}
       >
         Transfer
