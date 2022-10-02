@@ -39,9 +39,9 @@ export default function TonConnector({ userId }: { userId: string }) {
   return (
     <TonhubConnectProvider
       network="mainnet"
-      url="https://ton.org/"
+      url="https://testnet.toncenter.com/api/v2/"
       name="TON TWA BOT"
-      debug={false}
+      debug={true}
       connectionState={connectionState}
       setConnectionState={(s) => {
         setConnectionState(s as RemoteConnectPersistance);
