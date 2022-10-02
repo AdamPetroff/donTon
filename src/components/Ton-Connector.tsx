@@ -38,7 +38,7 @@ export default function TonConnector({ userId }: { userId: string }) {
 
   return (
     <TonhubConnectProvider
-      network="mainnet"
+      network="sandbox"
       url="https://ton.org/"
       name="TON TWA BOT"
       debug={false}
